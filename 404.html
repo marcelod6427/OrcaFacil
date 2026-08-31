@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada - OrçaFácil</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23f05a28'/%3E%3Crect x='30' y='25' width='40' height='50' rx='6' fill='none' stroke='%23fff' stroke-width='6'/%3E%3Cline x1='40' y1='38' x2='60' y2='38' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='40' cy='50' r='3.5' fill='%23fff'/%3E%3Ccircle cx='50' cy='50' r='3.5' fill='%23fff'/%3E%3Ccircle cx='60' cy='50' r='3.5' fill='%23fff'/%3E%3Ccircle cx='40' cy='60' r='3.5' fill='%23fff'/%3E%3Ccircle cx='50' cy='60' r='3.5' fill='%23fff'/%3E%3Ccircle cx='60' cy='60' r='3.5' fill='%23fff'/%3E%3Ccircle cx='40' cy='70' r='3.5' fill='%23fff'/%3E%3Cline x1='50' y1='70' x2='60' y2='70' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+    <style>
+        /* Paleta do site principal */
+        :root {
+            --primary: #f05a28;
+            --dark: #222222;
+            --light: #f8f9fa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .error-message {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 10px 0 20px;
+        }
+
+        .error-desc {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 400px;
+        }
+
+        .btn-home {
+            background-color: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-home:hover {
+            background-color: #d0481d;
+            transform: translateY(-2px);
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .wa-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            height: 60px;
+            max-width: 60px;
+            /* Largura inicial (apenas o ícone) */
+            background-color: #25D366;
+            /* Verde Padrão WhatsApp */
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-sizing: border-box;
+            /* Retração imediata ao tirar o mouse */
+            transition: max-width 0.4s ease 0s, background-color 0.3s ease 0s;
+            z-index: 9999;
+        }
+
+        /* Expansão com delay de 1 segundo ao passar o mouse */
+        /* Expansão com delay de 0.4s ao passar o mouse */
+        .wa-btn:hover {
+            max-width: 250px;
+            background-color: #1ebd5c;
+            /* Espera 0.4s (delay), depois expande por 0.4s (duração) */
+            transition: max-width 0.4s ease 0.4s, background-color 0.3s ease 0s;
+        }
+
+        .wa-icon {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            fill: white;
+        }
+
+        .wa-text {
+            white-space: nowrap;
+            padding-left: 12px;
+            opacity: 0;
+            /* Desaparece imediatamente ao tirar o mouse */
+            transition: opacity 0.2s ease 0s;
+        }
+
+        /* O texto aparece suavemente logo após a expansão terminar */
+        .wa-btn:hover .wa-text {
+            opacity: 1;
+            /* 0.4s de delay + 0.4s de expansão = 0.8s de espera total para o texto */
+            transition: opacity 0.3s ease 0.8s;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1 class="error-code">404</h1>
+    <div class="error-message">Oops! Página não encontrada.</div>
+    <div class="error-desc">A URL que você tentou acessar não existe, foi movida ou está temporariamente indisponível.
+    </div>
+    <a href="/" class="btn-home">Voltar ao Início</a>
+
+    <!-- Botão WhatsApp -->
+    <a href="https://api.whatsapp.com/send/?phone=5519993498895" target="_blank" class="wa-btn">
+        <!-- SVG Inline do WhatsApp -->
+        <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 448">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 416l52.4-13.8c33.1 18.2 70.3 27.8 108.6 27.8h.1c122.3 0 222.4-99.6 222.4-222 0-59.3-23.1-115-65-156.9zM223.9 396.6c-33.1 0-65.5-8.9-94-25.7l-6.7-4-69.8 18.3L72 316.5l-4.4-7.1c-18.4-29.6-28.1-64-28.1-99.4 0-103.5 83.8-187.3 187.3-187.3 50.2 0 97.2 19.5 132.7 55 35.4 35.4 55 82.5 55 132.7 0 103.6-83.8 187.3-187.3 187.3zM326.6 261.2c-5.6-2.8-33.4-16.5-38.6-18.4-5.2-1.9-9-2.8-12.8 2.8-3.7 5.6-14.6 18.4-17.9 22.2-3.3 3.7-6.5 4.2-12.1 1.4-5.6-2.8-23.8-8.8-45.3-24.9-16.7-12.5-28-28-31.3-33.6-3.3-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.5 8.4-9.8 2.8-3.3 3.7-5.6 5.6-9.3 1.9-3.7.9-7-5-9.8-1.4-2.8-12.8-30.8-17.5-42.2-4.6-11.1-9.2-9.6-12.8-9.8-3.3-.1-7.1-.1-10.8-.1-3.7 0-9.8 1.4-14.9 7-5.1 5.6-19.5 19.1-19.5 46.5 0 27.5 20 54 22.8 57.7 2.8 3.7 39.3 60.1 95.2 83.9 13.3 5.7 23.7 9 31.8 11.6 13.4 4.3 25.5 3.7 35.2 2.2 10.9-1.7 33.4-13.6 38.1-26.8 4.7-13.2 4.7-24.5 3.3-26.8-1.4-2.4-5.1-3.8-10.7-6.6z" />
+        </svg>
+        <span class="wa-text">Contatar Suporte</span>
+    </a>
+
+</body>
+
+</html>
