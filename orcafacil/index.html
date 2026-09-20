@@ -15,7 +15,7 @@
 
   <script>
     /* ---------- API Base Configuration ---------- */
-    const N8N_BASE_URL = "https://n8n.aetherisai.site/webhook";
+    const N8N_BASE_URL = "/api";
 
     /* ---------- Icons Set ---------- */
     const ic = {
@@ -351,6 +351,7 @@
       try {
         const resposta = await fetch(`${N8N_BASE_URL}/login`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ telefone: numLimpo, senha: f.pass })
         });
@@ -448,6 +449,7 @@
       try {
         const resposta = await fetch(`${N8N_BASE_URL}/cadastro`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             nome: f.name.trim(),
@@ -537,6 +539,7 @@
       try {
         const resposta = await fetch(`${N8N_BASE_URL}/esqueci-codigo`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ telefone: numLimpo })
         });
@@ -565,6 +568,7 @@
       try {
         const resposta = await fetch(`${N8N_BASE_URL}/esqueci-reset`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ telefone: numLimpo, codigo: f.code.trim(), senha: f.newPass })
         });
@@ -663,15 +667,22 @@
 
     function goto(v) { setState({ view: v }); }
 
-    function logout() {
-      setState({
-        view: "login",
-        name: "",
-        phone: "",
-        selectedPlan: null,
-        ui: { ...state.ui, sidebarOpen: false }
-      });
-    }
+    async function logout() {
+        try {
+            await fetch(`${N8N_BASE_URL}/logout`, { 
+            method: "POST", 
+            credentials: "same-origin" 
+            });
+        } catch (e) {}
+        setState({
+            view: "login",
+            name: "",
+            phone: "",
+            selectedPlan: null,
+            ui: { ...state.ui, sidebarOpen: false }
+        });
+     }
+
 
     function changeLanguage(newLang) {
       setState({ lang: newLang });
@@ -1013,6 +1024,7 @@
       try {
         const resposta = await fetch(`${N8N_BASE_URL}/config`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
@@ -1106,6 +1118,7 @@
       try {
         const resposta = await fetch(`${N8N_BASE_URL}/config`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             telefone: state.phone,
@@ -1470,6 +1483,7 @@
       try {
         await fetch(`${N8N_BASE_URL}/config`, {
           method: "POST",
+          credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             telefone: state.phone,
