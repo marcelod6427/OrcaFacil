@@ -33,7 +33,7 @@
 
         if(idOrcamento) {
             // Faz a requisição pro n8n para pegar a URL do PDF e marcar como "Visualizado"
-            fetch('https://n8n.aetherisai.site/webhook/ver-orcamento?id=' + idOrcamento)
+            fetch('/api/ver-orcamento?id=' + idOrcamento)
             .then(r => r.json())
             .then(data => {
                 if(data.url) {
