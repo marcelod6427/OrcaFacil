@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    image: orcafacil-backend:latest
+    container_name: orcafacil_node
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "6000:3000" # Mantemos a porta 6000 que já está configurada no Proxy Reverso
+    networks:
+      - orcafacil_net
+
+networks:
+  orcafacil_net:
+    driver: bridge
