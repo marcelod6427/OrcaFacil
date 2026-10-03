@@ -1,0 +1,14 @@
+# Dependências do Node
+node_modules/
+
+# Variáveis de Ambiente (Segurança Máxima)
+.env
+
+# Arquivos de log e sistema do Mac/Linux
+npm-debug.log
+.DS_Store
+
+# Exports do n8n (Contêm chaves de API)
+*.json
+!package.json
+!package-lock.json
